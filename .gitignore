@@ -1,0 +1,6 @@
+yeoman/node_modules/*
+yeoman/.tmp/
+yeoman/bower_components
+yeoman/.project
+yeoman/.gitignore
+yeoman/test/

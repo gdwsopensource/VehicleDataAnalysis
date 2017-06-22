@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>yeoman</title>
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!-- Place favicon.ico in the root directory -->
+	<link rel="stylesheet" href="styles/reset.css">
+	<!-- build:css styles/vendor.css -->
+	<!-- bower:css -->
+	<!-- endbower -->
+	<!-- endbuild -->
+
+	<!-- build:css styles/main.css -->
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/home.css">
+	<!-- endbuild -->
+
+	<script src="libs/echarts/echarts.min.js"></script>
+	<script src="libs/echarts/bmap.min.js"></script>
+	<script src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+
+	<!-- endbuild -->
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<header>
+				<p class="h1 text-center">卡口数据可视化</p>
+			</header>
+			<section>
+				<div class="row">
+					<div class="col-xs-3 col-md-3 col-lg-3 ">
+						<div class="sidebar">
+							<div class="nav">
+								<p>每日预警</p>
+								<ul class="sub-nav">
+									<li class=""><a href="index.html">重点关注</a></li>
+								</ul>
+							</div>
+							<div class="nav">
+								<p>智能辅助</p>
+								<ul class="sub-nav">
+									<li><a href="#">行为分析</a></li>
+									<li><a href="behavior-prediction.html">行为预测</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-9 col-md-9 col-lg-9 ">
+						<div class="content">
+							<div class="map" id="map"></div>
+							<div class="behavior-analysis-box">
+								<div class="title">
+									<p class="h4">行为分析<span><img src="images/close.png" class="img-responsive close-btn"/></span></p>
+								</div>
+								<div class="box">
+									<p>
+										<input type="text" name="search" id="search" class="search" value="" placeholder="请输入车牌号"/>
+									<button class="button">查询</button>
+									<button class="button">保存</button>
+									</p>
+									<div class="behavior-analysis" id="behavior-analysis"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- build:js scripts/vendor.js -->
+		<!-- bower:js -->
+		<script src="/bower_components/jquery/dist/jquery.js"></script>
+		<script src="/bower_components/modernizr/modernizr.js"></script>
+		<!-- endbower -->
+		<!-- endbuild -->
+
+
+		<!-- build:js scripts/main.js -->
+		<script src="scripts/common.js"></script>
+		<script src="scripts/main.js"></script>
+		<script src="scripts/behavior-analysis.js"></script>
+		<!-- endbuild -->
+	</body>
+
+</html>
