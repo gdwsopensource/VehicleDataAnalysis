@@ -63,3 +63,16 @@ CREATE TABLE `vehicle_appearance_prediction` (
   `vehicle_plate_no` char(12) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS student;
+CREATE TABLE `student` (
+  `stu_num` int(11) DEFAULT NULL,
+  `stu_name` varchar(32) DEFAULT NULL,
+  `stu_gender` int(2) DEFAULT NULL,
+  `stu_age` int(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `student` VALUES (123, '张三', 0, 20);
+INSERT INTO `student` VALUES (124, '李四', 0, 29);
+INSERT INTO `student` VALUES (125, '王五', 0, 30);
+
