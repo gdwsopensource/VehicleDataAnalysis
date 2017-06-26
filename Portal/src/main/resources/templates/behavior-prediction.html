@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	
+	<head th:include="template/template::head" />
+
+	<body>
+		<div class="container-fluid">
+			<header>
+				<p class="h1 text-center">卡口数据可视化</p>
+			</header>
+			<section>
+				<div class="row">
+					<div class="col-xs-3 col-md-3 col-lg-3 ">
+						<div th:include="template/nav::nav"  class="sidebar"></div>
+					</div>
+					<div class="col-xs-9 col-md-9 col-lg-9 ">
+						<div class="content">
+							<div class="map" id="map"></div>
+							<div class="behavior-prediction-box">
+								<div class="title">
+									<p class="h4">行为预测<span><img src="images/close.png" class="img-responsive close-btn"/></span></p>
+								</div>
+								<div class="box">
+									<p>
+										<input type="text" name="search" id="search" class="search" value="" placeholder="例：粤A 235679"/>
+										<button class="button">查询</button>
+									</p>
+									<table class="table">
+										<tr>
+											<th>预测地点</th>
+											<th>可能时间</th>
+										</tr>
+										<tr>
+											<td>花城大道</td>
+											<td>09：00-10：00</td>
+										</tr>
+									</table>
+									<p class="text-center"><button class="button">查看轨迹</button></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<footer th:include="template/template :: footer"></footer>
+		</div>
+	</body>
+<script th:src="@{js/behavior-prediction.js}"></script>
+</html>
