@@ -141,7 +141,7 @@ $boder: 1px solid #04b7e2;
                             color: #fff;
                             height: 80%;
                             .table {
-                               $boder: 1px solid #04b7e2;
+                               border:$boder;
                                 tr:first-child {
                                     background: #04b7e2;
                                 }
@@ -185,6 +185,7 @@ $boder: 1px solid #04b7e2;
                                 height: 70%;
                             }
                             .table {
+								
                                 border-top: 1px solid #04b7e2;
                                 border-bottom: 1px solid #04b7e2;
                                 tr:first-child {

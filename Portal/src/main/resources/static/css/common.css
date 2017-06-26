@@ -124,8 +124,10 @@
               padding-right: 30px;
               color: #fff;
               height: 80%; }
-              .container-fluid section .row > div .content .focus .box .table tr:first-child {
-                background: #04b7e2; }
+              .container-fluid section .row > div .content .focus .box .table {
+                border: 1px solid #04b7e2; }
+                .container-fluid section .row > div .content .focus .box .table tr:first-child {
+                  background: #04b7e2; }
           .container-fluid section .row > div .content .behavior-analysis-box .box,
           .container-fluid section .row > div .content .behavior-prediction-box .box {
             width: 90%;

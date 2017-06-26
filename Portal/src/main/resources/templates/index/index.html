@@ -52,6 +52,13 @@
 	</div>
 	
 	<script th:src="@{libs/mCustomScrollbar/jquery.mCustomScrollbar.js}"></script>
-	
+	<script th:nline="javascript">
+			$(".box").mCustomScrollbar({
+				 axis:"y", theme:"my-theme"
+			});
+			$('#time-prev-btn').click(function(){
+				console.log(this);
+			});
+		</script>
 </body>
 </html>
