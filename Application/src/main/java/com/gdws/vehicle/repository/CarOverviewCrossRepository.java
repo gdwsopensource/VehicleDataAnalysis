@@ -20,12 +20,14 @@ import com.gdws.vehicle.entity.CarOverviewCross;
  * @version 1.0, 2017年6月28日 上午9:42:20
  */
 public interface CarOverviewCrossRepository extends JpaRepository<CarOverviewCross, Long> {
-	
+
 	/**
 	 * 根据卡口和时间获取交通概览详细信息
+	 * 
 	 * @return
 	 */
-	
-	@Query(value="select co.id,ci.cross_name,co.plate_no,co.hour_num,co.alert_type from car_overview_cross co join cross_info ci on co.cross_id=ci.cross_id where ci.cross_name=?1 and co.cross_time=?2",nativeQuery=true)
-	List<Object> findByCrossAndDate(String crossName,String crossTime);
+
+	@Query(value = "select * from car_overview_cross where cross_id=?1 and cross_time=?2  ORDER BY hour_num", nativeQuery = true)
+	List<CarOverviewCross> findByCrossAndDate(int crossId, String crossTime);
+
 }

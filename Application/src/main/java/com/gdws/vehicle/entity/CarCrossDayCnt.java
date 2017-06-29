@@ -1,9 +1,9 @@
 /*
- * File Name：CarCrossHourCnt.java
+ * File Name：CarCrossDayCnt.java
  *
  * Copyrighe：copyright@2017 GZSW Company, All Rights Reserved
  *
- * Create Time: 2017年6月28日 上午9:37:55
+ * Create Time: 2017年6月29日 下午12:40:35
  */
 package com.gdws.vehicle.entity;
 
@@ -14,65 +14,61 @@ import javax.persistence.Id;
 /**
  *
  * @author Administrator (shinena_deng@163.com)
- * @version 1.0, 2017年6月28日 上午9:37:55
+ * @version 1.0, 2017年6月29日 下午12:40:35
  */
 @Entity
-public class CarCrossHourCnt {
+public class CarCrossDayCnt {
 	@Id
 	@GeneratedValue
 	private int id;
 	private String plateNo;
-	private String hourNum;
-	private int crossId;
+	private String crossTime;
+	private String weekNum;
 	private int crossCnt;
+	private int crossId;
 	private String comment1;
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getPlateNo() {
 		return plateNo;
 	}
-
 	public void setPlateNo(String plateNo) {
 		this.plateNo = plateNo;
 	}
-
-	public String getHourNum() {
-		return hourNum;
+	public String getCrossTime() {
+		return crossTime;
 	}
-
-	public void setHourNum(String hourNum) {
-		this.hourNum = hourNum;
+	public void setCrossTime(String crossTime) {
+		this.crossTime = crossTime;
 	}
-
-	public int getCrossId() {
-		return crossId;
+	public String getWeekNum() {
+		return weekNum;
 	}
-
-	public void setCrossId(int crossId) {
-		this.crossId = crossId;
+	public void setWeekNum(String weekNum) {
+		this.weekNum = weekNum;
 	}
-
 	public int getCrossCnt() {
 		return crossCnt;
 	}
-
 	public void setCrossCnt(int crossCnt) {
 		this.crossCnt = crossCnt;
 	}
-
+	public int getCrossId() {
+		return crossId;
+	}
+	public void setCrossId(int crossId) {
+		this.crossId = crossId;
+	}
 	public String getComment1() {
 		return comment1;
 	}
-
 	public void setComment1(String comment1) {
 		this.comment1 = comment1;
 	}
+
 
 }

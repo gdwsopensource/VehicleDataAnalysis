@@ -13,9 +13,9 @@ package com.gdws.vehicle.entity;
  * @version 1.0, 2017年6月28日 下午4:38:57
  */
 public class CrossOverview {
-//	co.id,co.car_cross_cnt,ci.longitude,ci.latitude
+//	co.id,co.carCrossCnt,ci.longitude,ci.latitude
 	private int id;
-	private int car_cross_cnt;
+	private int carCrossCnt;
 	private String longitude;
 	private String latitude;
 
@@ -25,13 +25,13 @@ public class CrossOverview {
 	
 	/**
 	 * @param id
-	 * @param car_cross_cnt
+	 * @param carCrossCnt
 	 * @param longitude
 	 * @param latitude
 	 */
-	public CrossOverview(int id, int car_cross_cnt, String longitude, String latitude) {
+	public CrossOverview(int id, int carCrossCnt, String longitude, String latitude) {
 		this.id = id;
-		this.car_cross_cnt = car_cross_cnt;
+		this.carCrossCnt = carCrossCnt;
 		this.longitude = longitude;
 		this.latitude = latitude;
 	}
@@ -42,11 +42,11 @@ public class CrossOverview {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getCar_cross_cnt() {
-		return car_cross_cnt;
+	public int getcarCrossCnt() {
+		return carCrossCnt;
 	}
-	public void setCar_cross_cnt(int car_cross_cnt) {
-		this.car_cross_cnt = car_cross_cnt;
+	public void setcarCrossCnt(int carCrossCnt) {
+		this.carCrossCnt = carCrossCnt;
 	}
 	public String getLongitude() {
 		return longitude;
