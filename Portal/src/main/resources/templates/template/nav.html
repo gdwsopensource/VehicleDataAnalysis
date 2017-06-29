@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<div class="sidebar" th:fragment="nav">
+		<div class="nav">
+			<p>每日预警</p>
+			<ul class="sub-nav">
+				<li class=""><a th:href="@{/index}">重点关注</a></li>
+			</ul>
+		</div>
+		<div class="nav">
+			<p>智能辅助</p>
+			<ul class="sub-nav">
+				<li><a th:href="@{/behavior-analysis}">行为分析</a></li>
+				<li><a th:href="@{/behavior-prediction}">行为预测</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
