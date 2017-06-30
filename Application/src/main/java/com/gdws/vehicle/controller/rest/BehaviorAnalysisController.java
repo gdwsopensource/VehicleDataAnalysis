@@ -31,23 +31,27 @@ public class BehaviorAnalysisController {
 
 	@Autowired
 	private CarCrossYearCntRepository carCrossYearCntRepository;
+
 	@RequestMapping("analysisOnHour")
 	JSONObject analysisOnDay(@RequestParam String plateNo) {
 		return service.analysisOnHour(plateNo);
 	}
+
 	/**
 	 * 最近n天(一个月、一周)的数据
+	 * 
 	 * @param day(7/30)
 	 * @param plateNo
 	 * @return
 	 */
+
 	@RequestMapping("analysisOnWeek")
-	JSONObject analysisOnWeek(@RequestParam int day,@RequestParam String plateNo){
-		return service.analysisOnWeek(day,plateNo);
+	JSONObject analysisOnWeek(@RequestParam int day, @RequestParam String plateNo) {
+		return service.analysisOnWeek(day, plateNo);
 	}
-	
+
 	@RequestMapping("analysisOnYear")
-	List<CarCrossYearCntWithCrossInfo> analysisOnYear(@RequestParam String plateNo){
+	List<CarCrossYearCntWithCrossInfo> analysisOnYear(@RequestParam String plateNo) {
 		return carCrossYearCntRepository.getOneYearData(plateNo);
 	}
 }

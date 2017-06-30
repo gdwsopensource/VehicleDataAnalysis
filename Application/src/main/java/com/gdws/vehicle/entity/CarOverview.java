@@ -25,40 +25,49 @@ public class CarOverview {
 	@Id
 	@GeneratedValue
 	private int id;
-	private int crossId;
+	private String crossId;
 	private int carCrossCnt;
 	private String crossTime;
 	private String comment1;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getCrossId() {
+
+	public String getCrossId() {
 		return crossId;
 	}
-	public void setCrossId(int crossId) {
+
+	public void setCrossId(String crossId) {
 		this.crossId = crossId;
 	}
+
 	public int getCarCrossCnt() {
 		return carCrossCnt;
 	}
+
 	public void setCarCrossCnt(int carCrossCnt) {
 		this.carCrossCnt = carCrossCnt;
 	}
+
 	public String getCrossTime() {
 		return crossTime;
 	}
+
 	public void setCrossTime(String crossTime) {
 		this.crossTime = crossTime;
 	}
+
 	public String getComment1() {
 		return comment1;
 	}
+
 	public void setComment1(String comment1) {
 		this.comment1 = comment1;
 	}
-	
-	
+
 }

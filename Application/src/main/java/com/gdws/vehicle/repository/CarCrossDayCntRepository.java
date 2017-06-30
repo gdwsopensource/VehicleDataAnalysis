@@ -21,14 +21,15 @@ import com.gdws.vehicle.entity.CarCrossDayCnt;
  */
 public interface CarCrossDayCntRepository extends JpaRepository<CarCrossDayCnt, Long> {
 	CarCrossDayCnt findById(int id);
+
 	/**
 	 * 获取最近n天的数据(一周、一个月)
+	 * 
 	 * @param day
 	 * @param plateNo
 	 * @return
 	 */
 	@Query(value = "SELECT * FROM car_cross_day_cnt where DATE_SUB(CURDATE(), INTERVAL ?1 DAY) <= date(cross_time) and plate_no=?2 ORDER BY cross_cnt desc;", nativeQuery = true)
-	List<CarCrossDayCnt> getOneWeekData(int day,String plateNo);
-	
-	
+	List<CarCrossDayCnt> getOneWeekData(int day, String plateNo);
+
 }

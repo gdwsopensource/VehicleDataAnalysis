@@ -27,14 +27,17 @@ import com.gdws.vehicle.service.CarOverviewService;
 public class CarOverviewCrossController {
 	@Autowired
 	private CarOverviewService service;
+
 	/**
 	 * 获取卡过车信息
+	 * 
 	 * @param crossName
 	 * @param crossTime
 	 * @return
 	 */
 	@RequestMapping("getCarOverviewCross")
-	JSONObject getCarOverviewCross(@RequestParam("crossName") String crossName,@RequestParam("crossTime") String crossTime){
-		return service.getCarOverviewCross(crossName, crossTime); 
+	JSONObject getCarOverviewCross(@RequestParam("crossName") String crossName,
+			@RequestParam("crossTime") String crossTime) {
+		return service.getCarOverviewCross(crossName, crossTime);
 	}
 }

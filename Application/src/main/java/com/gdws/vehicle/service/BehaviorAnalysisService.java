@@ -17,15 +17,17 @@ import com.alibaba.fastjson.JSONObject;
 public interface BehaviorAnalysisService {
 	/**
 	 * 最近一天的行为分析
+	 * 
 	 * @param plateNo
 	 * @return
 	 */
 	public JSONObject analysisOnHour(String plateNo);
-	
+
 	/**
 	 * 最近一周的行为分析
+	 * 
 	 * @param plateNo
 	 * @return
 	 */
-	public JSONObject analysisOnWeek(int day,String plateNo);
+	public JSONObject analysisOnWeek(int day, String plateNo);
 }

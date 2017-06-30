@@ -45,7 +45,7 @@ public class CarOverviewServiceImpl implements CarOverviewService {
 			List<CarOverview> co = carOverviewRepository.getCarOverview(crossTime);
 			for (int i = 0; i < co.size(); i++) {
 				JSONObject tmp = new JSONObject();
-				int crossId = co.get(i).getCrossId();
+				String crossId = co.get(i).getCrossId();
 				CrossInfo ci = crossInfoRepository.findByCrossId(crossId);
 				String str = null;
 				if (co.get(i).getCarCrossCnt() > 10) {

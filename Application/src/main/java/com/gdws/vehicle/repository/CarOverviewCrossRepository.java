@@ -28,6 +28,6 @@ public interface CarOverviewCrossRepository extends JpaRepository<CarOverviewCro
 	 */
 
 	@Query(value = "select * from car_overview_cross where cross_id=?1 and cross_time=?2  ORDER BY hour_num", nativeQuery = true)
-	List<CarOverviewCross> findByCrossAndDate(int crossId, String crossTime);
+	List<CarOverviewCross> findByCrossAndDate(String crossId, String crossTime);
 
 }

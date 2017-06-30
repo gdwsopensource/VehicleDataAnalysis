@@ -23,11 +23,9 @@ public class CarCrossYearCntWithCrossInfo {
 	private int id;
 	private String plateNo;
 	private String monthNum;
-//	private String dateMonth;
+	// private String dateMonth;
 	private int crossCnt;
 	private String crossName;
-
-
 
 	public int getId() {
 		return id;
@@ -53,7 +51,6 @@ public class CarCrossYearCntWithCrossInfo {
 		this.monthNum = monthNum;
 	}
 
-
 	public int getCrossCnt() {
 		return crossCnt;
 	}
@@ -62,7 +59,6 @@ public class CarCrossYearCntWithCrossInfo {
 		this.crossCnt = crossCnt;
 	}
 
-
 	public String getCrossName() {
 		return crossName;
 	}
@@ -70,6 +66,5 @@ public class CarCrossYearCntWithCrossInfo {
 	public void setCrossName(String crossName) {
 		this.crossName = crossName;
 	}
-
 
 }

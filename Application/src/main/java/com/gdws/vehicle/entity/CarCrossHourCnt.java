@@ -23,7 +23,8 @@ public class CarCrossHourCnt {
 	private int id;
 	private String plateNo;
 	private String hourNum;
-	private int crossId;
+	private String crossId;
+	private String crossTime;
 	private int crossCnt;
 	private String comment1;
 
@@ -51,11 +52,11 @@ public class CarCrossHourCnt {
 		this.hourNum = hourNum;
 	}
 
-	public int getCrossId() {
+	public String getCrossId() {
 		return crossId;
 	}
 
-	public void setCrossId(int crossId) {
+	public void setCrossId(String crossId) {
 		this.crossId = crossId;
 	}
 
@@ -73,6 +74,14 @@ public class CarCrossHourCnt {
 
 	public void setComment1(String comment1) {
 		this.comment1 = comment1;
+	}
+
+	public String getCrossTime() {
+		return crossTime;
+	}
+
+	public void setCrossTime(String crossTime) {
+		this.crossTime = crossTime;
 	}
 
 }

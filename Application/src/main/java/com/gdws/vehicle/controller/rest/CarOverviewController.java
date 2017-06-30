@@ -26,16 +26,16 @@ import com.gdws.vehicle.service.CarOverviewService;
 public class CarOverviewController {
 	@Autowired
 	private CarOverviewService carOverviewService;
-	
+
 	/**
 	 * 获取每日预警数据
+	 * 
 	 * @param crossTime
 	 * @return
 	 */
 	@RequestMapping("getCarOverview")
-	JSONObject getCarOverview(@RequestParam("crossTime") String crossTime){
+	JSONObject getCarOverview(@RequestParam("crossTime") String crossTime) {
 		return carOverviewService.getCrossOverview(crossTime);
 	}
-
 
 }

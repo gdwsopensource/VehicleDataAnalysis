@@ -25,50 +25,63 @@ public class CarCrossDayCnt {
 	private String crossTime;
 	private String weekNum;
 	private int crossCnt;
-	private int crossId;
+	private String crossId;
 	private String comment1;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getPlateNo() {
 		return plateNo;
 	}
+
 	public void setPlateNo(String plateNo) {
 		this.plateNo = plateNo;
 	}
+
 	public String getCrossTime() {
 		return crossTime;
 	}
+
 	public void setCrossTime(String crossTime) {
 		this.crossTime = crossTime;
 	}
+
 	public String getWeekNum() {
 		return weekNum;
 	}
+
 	public void setWeekNum(String weekNum) {
 		this.weekNum = weekNum;
 	}
+
 	public int getCrossCnt() {
 		return crossCnt;
 	}
+
 	public void setCrossCnt(int crossCnt) {
 		this.crossCnt = crossCnt;
 	}
-	public int getCrossId() {
+
+	public String getCrossId() {
 		return crossId;
 	}
-	public void setCrossId(int crossId) {
+
+	public void setCrossId(String crossId) {
 		this.crossId = crossId;
 	}
+
 	public String getComment1() {
 		return comment1;
 	}
+
 	public void setComment1(String comment1) {
 		this.comment1 = comment1;
 	}
-
 
 }

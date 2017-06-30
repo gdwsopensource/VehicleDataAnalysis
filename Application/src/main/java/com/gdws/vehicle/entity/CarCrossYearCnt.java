@@ -23,9 +23,9 @@ public class CarCrossYearCnt {
 	private int id;
 	private String plateNo;
 	private String monthNum;
-	private String dateMonth;
+	private String yearNum;
 	private int crossCnt;
-	private int crossId;
+	private String crossId;
 	private String comment1;
 
 	public int getId() {
@@ -52,12 +52,12 @@ public class CarCrossYearCnt {
 		this.monthNum = monthNum;
 	}
 
-	public String getDateMonth() {
-		return dateMonth;
+	public String getYearNum() {
+		return yearNum;
 	}
 
-	public void setDateMonth(String dateMonth) {
-		this.dateMonth = dateMonth;
+	public void setYearNum(String yearNum) {
+		this.yearNum = yearNum;
 	}
 
 	public int getCrossCnt() {
@@ -68,11 +68,11 @@ public class CarCrossYearCnt {
 		this.crossCnt = crossCnt;
 	}
 
-	public int getCrossId() {
+	public String getCrossId() {
 		return crossId;
 	}
 
-	public void setCrossId(int crossId) {
+	public void setCrossId(String crossId) {
 		this.crossId = crossId;
 	}
 

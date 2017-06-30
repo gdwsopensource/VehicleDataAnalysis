@@ -35,6 +35,7 @@ public class BehaviorAnalysisServiceImpl implements BehaviorAnalysisService {
 	private CrossInfoRepository crossInfoRepository;
 	@Autowired
 	private CarCrossDayCntRepository carCrossDayCntRepository;
+
 	@Override
 	public JSONObject analysisOnHour(String plateNo) {
 		JSONObject obj = new JSONObject();
@@ -64,17 +65,18 @@ public class BehaviorAnalysisServiceImpl implements BehaviorAnalysisService {
 	}
 
 	@Override
-	public JSONObject analysisOnWeek(int day,String plateNo) {
+	public JSONObject analysisOnWeek(int day, String plateNo) {
 		JSONObject obj = new JSONObject();
 		ArrayList arr = new ArrayList();
 		try {
-			List<CarCrossDayCnt> cd = carCrossDayCntRepository.getOneWeekData(day,plateNo);
+			List<CarCrossDayCnt> cd = carCrossDayCntRepository.getOneWeekData(day, plateNo);
 			for (int i = 0; i < cd.size(); i++) {
 				CrossInfo ci = crossInfoRepository.findByCrossId(cd.get(i).getCrossId());
 				JSONObject tmp = new JSONObject();
 				tmp.put("id", cd.get(i).getId());
+				// tmp.put("cross_name", cd.get(i).getCrossId());
 				tmp.put("cross_name", ci.getCrossName());
-				tmp.put("cross_time",cd.get(i).getCrossTime());
+				tmp.put("cross_time", cd.get(i).getCrossTime());
 				tmp.put("week_num", cd.get(i).getWeekNum());
 				tmp.put("cross_cnt", cd.get(i).getCrossCnt());
 				tmp.put("comment1", cd.get(i).getComment1());

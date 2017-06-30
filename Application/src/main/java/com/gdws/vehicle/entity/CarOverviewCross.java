@@ -20,56 +20,70 @@ import javax.persistence.Id;
  */
 @Entity
 public class CarOverviewCross {
- @Id
- @GeneratedValue
- private int id;
- private int crossId;
- private String plateNo;
- private String crossTime;
- private String hourNum;
- private String alertType;
- private String comment1;
-public int getId() {
-	return id;
-}
-public void setId(int id) {
-	this.id = id;
-}
-public int getCrossId() {
-	return crossId;
-}
-public void setCrossId(int crossId) {
-	this.crossId = crossId;
-}
-public String getPlateNo() {
-	return plateNo;
-}
-public void setPlateNo(String plateNo) {
-	this.plateNo = plateNo;
-}
-public String getCrossTime() {
-	return crossTime;
-}
-public void setCrossTime(String crossTime) {
-	this.crossTime = crossTime;
-}
-public String getHourNum() {
-	return hourNum;
-}
-public void setHourNum(String hourNum) {
-	this.hourNum = hourNum;
-}
-public String getAlertType() {
-	return alertType;
-}
-public void setAlertType(String alertType) {
-	this.alertType = alertType;
-}
-public String getComment1() {
-	return comment1;
-}
-public void setComment1(String comment1) {
-	this.comment1 = comment1;
-}
- 
+	@Id
+	@GeneratedValue
+	private int id;
+	private String crossId;
+	private String plateNo;
+	private String crossTime;
+	private String hourNum;
+	private String alertType;
+	private String comment1;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPlateNo() {
+		return plateNo;
+	}
+
+	public String getCrossId() {
+		return crossId;
+	}
+
+	public void setCrossId(String crossId) {
+		this.crossId = crossId;
+	}
+
+	public void setPlateNo(String plateNo) {
+		this.plateNo = plateNo;
+	}
+
+	public String getCrossTime() {
+		return crossTime;
+	}
+
+	public void setCrossTime(String crossTime) {
+		this.crossTime = crossTime;
+	}
+
+	public String getHourNum() {
+		return hourNum;
+	}
+
+	public void setHourNum(String hourNum) {
+		this.hourNum = hourNum;
+	}
+
+	public String getAlertType() {
+		return alertType;
+	}
+
+	public void setAlertType(String alertType) {
+		this.alertType = alertType;
+	}
+
+	public String getComment1() {
+		return comment1;
+	}
+
+	public void setComment1(String comment1) {
+		this.comment1 = comment1;
+	}
+
 }
