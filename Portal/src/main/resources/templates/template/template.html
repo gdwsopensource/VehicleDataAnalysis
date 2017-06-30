@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
+<meta charset="UTF-8" />
+<title th:text="车辆分析系统"></title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--  <link rel="shortcut icon" th:href="@{/static/img/favicon.gif}" type="image/gif" /> -->
+<link rel="stylesheet" th:href="@{css/reset.css}" />
+<link rel="stylesheet" th:href="@{libs/bootstrap-3.3.7-dist/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/common.css}" />
+<link rel="stylesheet" th:href="@{libs/mCustomScrollbar/jquery.mCustomScrollbar.min.css}"/>
+
+<script th:src="@{libs/jquery/jquery.3-2-1.min.js}"></script>
+<script th:src="@{libs/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+
+<script th:src="@{libs/echarts/echarts.min.js}"></script>
+<script th:src="@{libs/echarts/bmap.min.js}"></script>
+<script th:src="@{http://api.map.baidu.com/api?v=2.0&;ak=ZUONbpqGBsYGXNIYHicvbAbM;}"></script>
+
+<script th:src="@{js/main.js}"></script>
+<script th:src="@{js/common.js}"></script>
+
 </head>
 
 <body>
-
-<div th:fragment="footerpart">
-    <div class="copyright">
-        Copyright 2017 &copy; 广东蔚海数问大数据有限公司
-    </div>
-</div> <!--  <div th:fragment="footerpart"> -->
+	<footer th:fragment="footer">
+		<div class="copyright text-center">Copyright 2017 &copy;广东蔚海数问大数据有限公司</div>
+	</footer>
+	<!--  <div th:fragment="footer"> -->
 </body>
 </html>
->

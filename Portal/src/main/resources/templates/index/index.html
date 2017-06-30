@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8"></meta>
-<title>测试index页面</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="template/template::head" />
 <body>
-    Test Page
-    <!--/*/ <th:block th:include="template/template :: footerpart"></th:block> /*/-->
+	<div class="container-fluid">
+		<header>
+			<p class="h1 text-center">卡口数据可视化</p>
+		</header>
+		<section>
+			<div class="row">
+				<div class="col-xs-3 col-md-3 col-lg-3 ">
+					<div th:include="template/nav::nav" class="sidebar"></div>
+				</div>
+				<div class="col-xs-9 col-md-9 col-lg-9 ">
+					<div class="content">
+						<div class="map" id="map"></div>
+						<div class="calendar">
+							<span id="time-prev-btn"><img src="images/prev.png" alt="" /></span>
+							<select name="year">
+								<option value="year">2017</option>
+								<option value="year">2017</option>
+								<option value="year">2017</option>
+								<option value="year">2017</option>
+							</select> <select name="month">
+								<option value="month">05</option>
+								<option value="month">05</option>
+								<option value="month">05</option>
+								<option value="month">05</option>
+							</select> <select name="data">
+								<option value="date">11</option>
+								<option value="date">11</option>
+								<option value="date">11</option>
+								<option value="date">11</option>
+							</select> <span id="time-next-btn"><img src="images/next.png" /></span>
+						</div>
+						<div class="focus">
+							<div class="title">
+								<p class="h4">
+									高发车辆 <span><img src="images/close.png"
+										class="img-responsive close-btn" /></span>
+								</p>
+							</div>
+							<div class="box table-responsive">
+								<table class="table" id="checkpoint-data"></table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer th:include="template/template :: footer"></footer>
+	</div>
+	
+	<script th:src="@{libs/mCustomScrollbar/jquery.mCustomScrollbar.js}"></script>
+	<script th:nline="javascript">
+			$(".box").mCustomScrollbar({
+				 axis:"y", theme:"my-theme"
+			});
+			$('#time-prev-btn').click(function(){
+				console.log(this);
+			});
+		</script>
 </body>
 </html>

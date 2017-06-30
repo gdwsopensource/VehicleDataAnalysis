@@ -23,6 +23,17 @@ public class PortalController {
         return "index/index";
     }
     
+    
+    @RequestMapping("behavior-analysis")
+    String behaviorAnalysis() {
+        return "behavior-analysis";
+    }
+    
+    @RequestMapping("behavior-prediction")
+    String behaviorPrediction() {
+        return "behavior-prediction";
+    }
+    
     @RequestMapping("mv")
     ModelAndView test() {
         ModelAndView mv = new ModelAndView();
