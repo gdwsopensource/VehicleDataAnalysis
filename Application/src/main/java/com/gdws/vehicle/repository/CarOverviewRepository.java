@@ -29,7 +29,7 @@ public interface CarOverviewRepository extends JpaRepository<CarOverview, Long> 
 	 * @param crossTime
 	 * @return
 	 */
-	@Query(value = "select * from car_overview where cross_time=?1", nativeQuery = true)
+	@Query(value = "select * from car_overview  where cross_time=?1", nativeQuery = true)
 	List<CarOverview> getCarOverview(String crossTime);
 
 }

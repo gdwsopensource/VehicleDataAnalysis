@@ -7,9 +7,15 @@
  */
 package com.gdws.vehicle.controller;
 
+import org.apache.commons.httpclient.Header;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpMethod;
+import org.apache.commons.httpclient.methods.GetMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.alibaba.fastjson.JSONObject;
 
 /**
  *
@@ -34,11 +40,11 @@ public class PortalController {
         return "behavior-prediction";
     }
     
-    @RequestMapping("mv")
-    ModelAndView test() {
-        ModelAndView mv = new ModelAndView();
-        
-        return mv;
-    }
+//    @RequestMapping("mv")
+//    ModelAndView test() {
+//        ModelAndView mv = new ModelAndView();
+//        
+//        return mv;
+//    }
 }
 

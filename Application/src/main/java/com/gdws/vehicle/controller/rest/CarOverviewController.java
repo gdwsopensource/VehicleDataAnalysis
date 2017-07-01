@@ -12,9 +12,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.gdws.vehicle.service.CarOverviewService;
 
 /**
@@ -33,9 +35,17 @@ public class CarOverviewController {
 	 * @param crossTime
 	 * @return
 	 */
-	@RequestMapping("getCarOverview")
-	JSONObject getCarOverview(@RequestParam("crossTime") String crossTime) {
-		return carOverviewService.getCrossOverview(crossTime);
+//	@RequestMapping("getCarOverview")
+//	JSONObject getCarOverview(@RequestParam("crossTime") String crossTime) {
+//		return carOverviewService.getCrossOverview(crossTime);
+//	}
+	
+	@RequestMapping("/getCarOverview")
+	@ResponseBody
+	public JSONPObject getCarOverview(String cb,String crossTime) {
+		JSONObject str = carOverviewService.getCrossOverview(crossTime);
+		System.out.println(str);
+		return new JSONPObject(cb, str.toString());
 	}
 
 }

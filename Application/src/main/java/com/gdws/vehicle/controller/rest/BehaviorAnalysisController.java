@@ -12,10 +12,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.gdws.vehicle.entity.CarCrossHourCntRes;
 import com.gdws.vehicle.entity.CarCrossYearCntWithCrossInfo;
+import com.gdws.vehicle.repository.CarCrossHourCntRepository;
 import com.gdws.vehicle.repository.CarCrossYearCntRepository;
 import com.gdws.vehicle.service.BehaviorAnalysisService;
 
@@ -32,9 +36,11 @@ public class BehaviorAnalysisController {
 	@Autowired
 	private CarCrossYearCntRepository carCrossYearCntRepository;
 
-	@RequestMapping("analysisOnHour")
-	JSONObject analysisOnDay(@RequestParam String plateNo) {
-		return service.analysisOnHour(plateNo);
+	@RequestMapping("/analysisOnHour")
+	@ResponseBody
+	public JSONPObject analysisOnHour(String cb, String plateNo, String crossTime) {
+		JSONObject str = service.analysisOnDay(plateNo, crossTime);
+		return new JSONPObject(cb, str.toString());
 	}
 
 	/**
@@ -44,14 +50,17 @@ public class BehaviorAnalysisController {
 	 * @param plateNo
 	 * @return
 	 */
-
-	@RequestMapping("analysisOnWeek")
-	JSONObject analysisOnWeek(@RequestParam int day, @RequestParam String plateNo) {
-		return service.analysisOnWeek(day, plateNo);
+	@RequestMapping("/analysisOnWeek")
+	@ResponseBody
+	public JSONPObject analysisOnWeek(String cb, int day, String plateNo) {
+		JSONObject str = service.analysisOnWeek(day, plateNo);
+		return new JSONPObject(cb, str.toString());
 	}
 
 	@RequestMapping("analysisOnYear")
-	List<CarCrossYearCntWithCrossInfo> analysisOnYear(@RequestParam String plateNo) {
-		return carCrossYearCntRepository.getOneYearData(plateNo);
+	@ResponseBody
+	public JSONPObject analysisOnYear(String cb, String plateNo) {
+		JSONObject str = service.analysisOnYear(plateNo);
+		return new JSONPObject(cb, str.toString());
 	}
 }

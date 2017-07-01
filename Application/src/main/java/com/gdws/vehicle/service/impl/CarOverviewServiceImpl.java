@@ -43,28 +43,36 @@ public class CarOverviewServiceImpl implements CarOverviewService {
 		ArrayList list = new ArrayList();
 		try {
 			List<CarOverview> co = carOverviewRepository.getCarOverview(crossTime);
-			for (int i = 0; i < co.size(); i++) {
-				JSONObject tmp = new JSONObject();
-				String crossId = co.get(i).getCrossId();
-				CrossInfo ci = crossInfoRepository.findByCrossId(crossId);
-				String str = null;
-				if (co.get(i).getCarCrossCnt() > 10) {
-					str = "serious";
-				} else if (co.get(i).getCarCrossCnt() < 5) {
-					str = "medium";
-				} else {
-					str = "low";
+			if(co.size()>0){
+				for (int i = 0; i < co.size(); i++) {
+					JSONObject tmp = new JSONObject();
+					String crossId = co.get(i).getCrossId();
+					CrossInfo ci = crossInfoRepository.findByCrossId(crossId);
+					String str = null;
+					if (co.get(i).getCarCrossCnt() > 10) {
+						str = "serious";
+					} else if (co.get(i).getCarCrossCnt() < 5) {
+						str = "medium";
+					} else {
+						str = "low";
+					}
+					tmp.put("id", co.get(i).getId());
+					tmp.put("car_cross_cnt", co.get(i).getCarCrossCnt());
+					tmp.put("alert_type", str);
+					tmp.put("cross_name", ci.getCrossName());
+					tmp.put("cross_id", ci.getCrossId());
+					tmp.put("lng", ci.getLongitude());
+					tmp.put("lat", ci.getLatitude());
+					list.add(tmp);
 				}
-				tmp.put("id", co.get(i).getId());
-				tmp.put("car_cross_cnt", co.get(i).getCarCrossCnt());
-				tmp.put("alert_type", str);
-				tmp.put("lng", ci.getLongitude());
-				tmp.put("lat", ci.getLatitude());
-				list.add(tmp);
+				obj.put("data", list);
+				obj.put("code", 200);
+				obj.put("message", "success");
+			}else{
+				obj.put("data", "no data");
+				obj.put("code", 200);
+				obj.put("message", "success");
 			}
-			obj.put("data", list);
-			obj.put("code", 200);
-			obj.put("message", "success");
 		} catch (Exception e) {
 			obj.put("code", 500);
 			obj.put("message", "failure");
@@ -83,19 +91,25 @@ public class CarOverviewServiceImpl implements CarOverviewService {
 			CrossInfo ci = crossInfoRepository.findByCrossName(crossName);
 			List<CarOverviewCross> list = carOverviewCrossRepository.findByCrossAndDate(ci.getCrossId(), crossTime);
 
-			for (int i = 0; i < list.size(); i++) {
-				JSONObject tmp = new JSONObject();
-				tmp.put("id", list.get(i).getId());
-				tmp.put("cross_name", crossName);
-				tmp.put("plate_no", list.get(i).getPlateNo());
-				tmp.put("cross_time", list.get(i).getCrossTime());
-				tmp.put("hour_num", list.get(i).getHourNum());
-				tmp.put("alert_type", list.get(i).getAlertType());
-				arr.add(tmp);
+			if(list.size()>0){
+				for (int i = 0; i < list.size(); i++) {
+					JSONObject tmp = new JSONObject();
+					tmp.put("id", list.get(i).getId());
+					tmp.put("cross_name", crossName);
+					tmp.put("plate_no", list.get(i).getPlateNo());
+					tmp.put("cross_time", list.get(i).getCrossTime());
+					tmp.put("hour_num", list.get(i).getHourNum());
+					tmp.put("alert_type", list.get(i).getAlertType());
+					arr.add(tmp);
+				}
+				obj.put("code", 200);
+				obj.put("message", "success");
+				obj.put("data", arr);
+			}else{
+				obj.put("data", "no data");
+				obj.put("code", 200);
+				obj.put("message", "success");
 			}
-			obj.put("code", 200);
-			obj.put("message", "success");
-			obj.put("data", arr);
 		} catch (Exception e) {
 			obj.put("code", 500);
 			obj.put("message", "failure");

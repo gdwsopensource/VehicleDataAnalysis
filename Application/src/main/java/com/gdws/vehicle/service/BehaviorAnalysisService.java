@@ -7,7 +7,10 @@
  */
 package com.gdws.vehicle.service;
 
+import java.util.List;
+
 import com.alibaba.fastjson.JSONObject;
+import com.gdws.vehicle.entity.CarCrossHourCntRes;
 
 /**
  *
@@ -15,13 +18,6 @@ import com.alibaba.fastjson.JSONObject;
  * @version 1.0, 2017年6月29日 上午11:00:11
  */
 public interface BehaviorAnalysisService {
-	/**
-	 * 最近一天的行为分析
-	 * 
-	 * @param plateNo
-	 * @return
-	 */
-	public JSONObject analysisOnHour(String plateNo);
 
 	/**
 	 * 最近一周的行为分析
@@ -30,4 +26,17 @@ public interface BehaviorAnalysisService {
 	 * @return
 	 */
 	public JSONObject analysisOnWeek(int day, String plateNo);
+
+	/**
+	 * @param plateNo
+	 * @return
+	 */
+	JSONObject analysisOnYear(String plateNo);
+
+	/**
+	 * @param plateNo
+	 * @param crossTime
+	 * @return
+	 */
+	JSONObject analysisOnDay(String plateNo, String crossTime);
 }
