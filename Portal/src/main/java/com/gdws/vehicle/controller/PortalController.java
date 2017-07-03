@@ -20,7 +20,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class PortalController {
     @RequestMapping("index")
     String frequentBusines() {
-        return "index/index";
+        return "index";
+    }
+    @RequestMapping("behavior-analysis")
+    String behaviorAnalysis() {
+        return "behavior-analysis";
+    }
+    
+    @RequestMapping("behavior-prediction")
+    String behaviorPrediction() {
+        return "behavior-prediction";
     }
     
     @RequestMapping("mv")
