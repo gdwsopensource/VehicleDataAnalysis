@@ -19,7 +19,7 @@ import com.gdws.vehicle.entity.BehaviorPrediction;
  * @author vous (shinena_deng@163.com)
  * @version 1.0, 2017年7月1日 下午3:09:26
  */
-public interface BehaviorPredictionRepository extends JpaRepository<BehaviorPrediction, Long> {
+public interface BehaviorPredictionRepository extends JpaRepository<BehaviorPrediction, Integer> {
 	/**
 	 * 行为预测
 	 * 

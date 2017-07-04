@@ -35,16 +35,11 @@ public class CarOverviewController {
 	 * @param crossTime
 	 * @return
 	 */
-//	@RequestMapping("getCarOverview")
-//	JSONObject getCarOverview(@RequestParam("crossTime") String crossTime) {
-//		return carOverviewService.getCrossOverview(crossTime);
-//	}
 	
 	@RequestMapping("/getCarOverview")
 	@ResponseBody
 	public JSONPObject getCarOverview(String cb,String crossTime) {
 		JSONObject str = carOverviewService.getCrossOverview(crossTime);
-		System.out.println(str);
 		return new JSONPObject(cb, str.toString());
 	}
 

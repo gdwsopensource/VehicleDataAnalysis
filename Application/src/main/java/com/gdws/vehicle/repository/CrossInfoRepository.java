@@ -16,7 +16,7 @@ import com.gdws.vehicle.entity.CrossInfo;
  * @author Administrator (shinena_deng@163.com)
  * @version 1.0, 2017年6月28日 上午10:06:44
  */
-public interface CrossInfoRepository extends JpaRepository<CrossInfo, Long> {
+public interface CrossInfoRepository extends JpaRepository<CrossInfo, Integer> {
 	/**
 	 * 
 	 * @param crossId

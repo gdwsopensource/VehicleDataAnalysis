@@ -8,7 +8,6 @@
 package com.gdws.vehicle.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.gdws.vehicle.entity.CrossOverview;
 
 /**
  *
@@ -31,5 +30,5 @@ public interface CarOverviewService {
 	 * @param crossTime
 	 * @return
 	 */
-	public JSONObject getCarOverviewCross(String crossName, String crossTime);
+	public JSONObject getCarOverviewCross(String crossId, String crossTime);
 }

@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.gdws.vehicle.entity.CarOverviewCross;
+import com.gdws.vehicle.repository.CarOverviewCrossRepository;
 import com.gdws.vehicle.service.CarOverviewService;
 
 /**
@@ -29,6 +31,8 @@ import com.gdws.vehicle.service.CarOverviewService;
 public class CarOverviewCrossController {
 	@Autowired
 	private CarOverviewService service;
+	@Autowired
+	private CarOverviewCrossRepository carOverviewCrossRepository;
 
 	/**
 	 * 获取卡过车信息
@@ -37,20 +41,12 @@ public class CarOverviewCrossController {
 	 * @param crossTime
 	 * @return
 	 */
-	//接口路由
-//	@RequestMapping("getCarOverviewCross")
-//	@ResponseBody
-//	public JSONObject getCarOverviewCross(@RequestParam("crossName") String crossName,
-//			@RequestParam("crossTime") String crossTime) {
-//		return service.getCarOverviewCross(crossName,crossTime);
-//	}
-//	
+
 	@RequestMapping("/getCarOverviewCross")
 	@ResponseBody
-	public JSONPObject getCarOverviewCross(String cb,String crossName,String crossTime) {
-		JSONObject str = service.getCarOverviewCross(crossName, crossTime);
+	public JSONPObject getCarOverviewCross(String cb, String crossId, String crossTime) {
+		JSONObject str = service.getCarOverviewCross(crossId, crossTime);
 		return new JSONPObject(cb, str.toString());
 	}
-	
-	
+
 }

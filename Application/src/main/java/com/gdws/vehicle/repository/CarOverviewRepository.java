@@ -14,14 +14,13 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.gdws.vehicle.entity.CarOverview;
 import com.gdws.vehicle.entity.CrossInfo;
-import com.gdws.vehicle.entity.CrossOverview;
 
 /**
  *
  * @author Administrator (shinena_deng@163.com)
  * @version 1.0, 2017年6月28日 上午9:20:53
  */
-public interface CarOverviewRepository extends JpaRepository<CarOverview, Long> {
+public interface CarOverviewRepository extends JpaRepository<CarOverview, Integer> {
 
 	/**
 	 * 获取预警数据

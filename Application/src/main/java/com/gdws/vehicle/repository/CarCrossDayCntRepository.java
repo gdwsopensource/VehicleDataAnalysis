@@ -19,7 +19,7 @@ import com.gdws.vehicle.entity.CarCrossDayCnt;
  * @author Administrator (shinena_deng@163.com)
  * @version 1.0, 2017年6月29日 下午12:48:04
  */
-public interface CarCrossDayCntRepository extends JpaRepository<CarCrossDayCnt, Long> {
+public interface CarCrossDayCntRepository extends JpaRepository<CarCrossDayCnt, Integer> {
 	CarCrossDayCnt findById(int id);
 
 	/**

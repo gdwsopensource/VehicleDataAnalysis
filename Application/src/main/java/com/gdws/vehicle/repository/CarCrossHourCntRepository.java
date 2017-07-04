@@ -13,6 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.alibaba.fastjson.JSONObject;
+import com.gdws.vehicle.entity.CarCrossHourCnt;
 import com.gdws.vehicle.entity.CarCrossHourCntRes;
 
 /**
@@ -20,13 +21,16 @@ import com.gdws.vehicle.entity.CarCrossHourCntRes;
  * @author Administrator (shinena_deng@163.com)
  * @version 1.0, 2017年6月28日 下午2:39:34
  */
-public interface CarCrossHourCntRepository extends JpaRepository<CarCrossHourCntRes, Long> {
+public interface CarCrossHourCntRepository extends JpaRepository<CarCrossHourCnt, Integer> {
 	/**
 	 * 最近一天行为分析
 	 * 
 	 * @param plateNo
 	 * @return
 	 */
-	@Query(value = "select a.*,c.cross_name from( select  * from car_cross_hour_cnt a where  5>( select  count(*) from car_cross_hour_cnt  where hour_num=a.hour_num and  cross_id=a.cross_id and cross_cnt > a.cross_cnt  ) and a.plate_no=?1   and a.cross_time=?2 order by hour_num,cross_cnt) a left outer join cross_info c on a.cross_id=c.cross_id ;", nativeQuery = true)
-	List<CarCrossHourCntRes> findByPlateNoOrderByCrossCntDesc(String plateNo,String crossTime);
+//	@Query(value = "select a.*,c.cross_name from( select  * from car_cross_hour_cnt a where  5>( select  count(*) from car_cross_hour_cnt  where hour_num=a.hour_num and  cross_id=a.cross_id and cross_cnt > a.cross_cnt  ) and a.plate_no=?1   and a.cross_time=?2 order by hour_num,cross_cnt) a left outer join cross_info c on a.cross_id=c.cross_id ;", nativeQuery = true)
+//	List<CarCrossHourCntRes> findByPlateNoOrderByCrossCntDesc(String plateNo,String crossTime);
+	
+	@Query(value="SELECT cross_cnt,hour_num from car_cross_hour_cnt where cross_time=?1 and plate_no=?2 and cross_id=?3 ORDER BY hour_num asc",nativeQuery=true)
+	List<CarCrossHourCnt> getOneDayAnalysis(String crossTime,String plateNo,String crossId);
 }

@@ -8,6 +8,7 @@
 package com.gdws.vehicle.service.impl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.gdws.vehicle.entity.CarOverview;
 import com.gdws.vehicle.entity.CarOverviewCross;
 import com.gdws.vehicle.entity.CrossInfo;
-import com.gdws.vehicle.entity.CrossOverview;
 import com.gdws.vehicle.repository.CarOverviewCrossRepository;
 import com.gdws.vehicle.repository.CarOverviewRepository;
 import com.gdws.vehicle.repository.CrossInfoRepository;
@@ -40,35 +40,36 @@ public class CarOverviewServiceImpl implements CarOverviewService {
 	@Override
 	public JSONObject getCrossOverview(String crossTime) {
 		JSONObject obj = new JSONObject();
-		ArrayList list = new ArrayList();
+		List<JSONObject> list = new ArrayList<JSONObject>();
 		try {
 			List<CarOverview> co = carOverviewRepository.getCarOverview(crossTime);
-			if(co.size()>0){
-				for (int i = 0; i < co.size(); i++) {
+			Iterator<CarOverview> carOverviewIter = co.iterator();
+			if (carOverviewIter.hasNext()) {
+				while (carOverviewIter.hasNext()) {
 					JSONObject tmp = new JSONObject();
-					String crossId = co.get(i).getCrossId();
-					CrossInfo ci = crossInfoRepository.findByCrossId(crossId);
-					String str = null;
-					if (co.get(i).getCarCrossCnt() > 10) {
-						str = "serious";
-					} else if (co.get(i).getCarCrossCnt() < 5) {
-						str = "medium";
+					CarOverview tmpCarOverview = carOverviewIter.next();
+					String alertType = null;
+					if (tmpCarOverview.getCarCrossCnt() > 10) {
+						alertType = "serious";
+					} else if (5 < tmpCarOverview.getCarCrossCnt() && tmpCarOverview.getCarCrossCnt() <= 10) {
+						alertType = "medium";
 					} else {
-						str = "low";
+						alertType = "low";
 					}
-					tmp.put("id", co.get(i).getId());
-					tmp.put("car_cross_cnt", co.get(i).getCarCrossCnt());
-					tmp.put("alert_type", str);
-					tmp.put("cross_name", ci.getCrossName());
-					tmp.put("cross_id", ci.getCrossId());
-					tmp.put("lng", ci.getLongitude());
-					tmp.put("lat", ci.getLatitude());
+					CrossInfo crossInfo = crossInfoRepository.findByCrossId(tmpCarOverview.getCrossId());
+					tmp.put("id", tmpCarOverview.getId());
+					tmp.put("car_cross_cnt", tmpCarOverview.getCarCrossCnt());
+					tmp.put("alert_type", alertType);
+					tmp.put("cross_name", crossInfo.getCrossName());
+					tmp.put("cross_id", crossInfo.getCrossId());
+					tmp.put("lng", crossInfo.getLongitude());
+					tmp.put("lat", crossInfo.getLatitude());
 					list.add(tmp);
 				}
 				obj.put("data", list);
 				obj.put("code", 200);
 				obj.put("message", "success");
-			}else{
+			} else {
 				obj.put("data", "no data");
 				obj.put("code", 200);
 				obj.put("message", "success");
@@ -83,33 +84,36 @@ public class CarOverviewServiceImpl implements CarOverviewService {
 	}
 
 	@Override
-	public JSONObject getCarOverviewCross(String crossName, String crossTime) {
+	public JSONObject getCarOverviewCross(String crossId, String crossTime) {
 		JSONObject obj = new JSONObject();
-		ArrayList arr = new ArrayList();
+		List<JSONObject> arr = new ArrayList<JSONObject>();
 
 		try {
-			CrossInfo ci = crossInfoRepository.findByCrossName(crossName);
-			List<CarOverviewCross> list = carOverviewCrossRepository.findByCrossAndDate(ci.getCrossId(), crossTime);
+			List<CarOverviewCross> list = carOverviewCrossRepository.findByCrossAndDate(crossId, crossTime);
 
-			if(list.size()>0){
-				for (int i = 0; i < list.size(); i++) {
+			Iterator<CarOverviewCross> carOverviewCrossIter = list.iterator();
+			if (carOverviewCrossIter.hasNext()) {
+				while (carOverviewCrossIter.hasNext()) {
 					JSONObject tmp = new JSONObject();
-					tmp.put("id", list.get(i).getId());
-					tmp.put("cross_name", crossName);
-					tmp.put("plate_no", list.get(i).getPlateNo());
-					tmp.put("cross_time", list.get(i).getCrossTime());
-					tmp.put("hour_num", list.get(i).getHourNum());
-					tmp.put("alert_type", list.get(i).getAlertType());
+					CarOverviewCross carOverviewCrossIterTemp = carOverviewCrossIter.next();
+					CrossInfo crossInfo = crossInfoRepository.findByCrossId(crossId);
+					tmp.put("id", carOverviewCrossIterTemp.getId());
+					tmp.put("cross_name", crossInfo.getCrossName());
+					tmp.put("plate_no", carOverviewCrossIterTemp.getPlateNo());
+					tmp.put("cross_time", carOverviewCrossIterTemp.getCrossTime());
+					tmp.put("hour_num", carOverviewCrossIterTemp.getHourNum()+":00-"+carOverviewCrossIterTemp.getHourNum()+":59");
+					tmp.put("alert_type", carOverviewCrossIterTemp.getAlertType());
 					arr.add(tmp);
 				}
 				obj.put("code", 200);
 				obj.put("message", "success");
 				obj.put("data", arr);
-			}else{
+			} else {
 				obj.put("data", "no data");
 				obj.put("code", 200);
 				obj.put("message", "success");
 			}
+			
 		} catch (Exception e) {
 			obj.put("code", 500);
 			obj.put("message", "failure");
