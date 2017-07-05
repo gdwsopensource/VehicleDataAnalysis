@@ -66,6 +66,7 @@ public class BehaviorAnalysisOneDayServiceImpl implements BehaviorAnalysisOneDay
 					}
 					tmpData.put("cross_id", crossCountTemp.getCrossId());
 					tmpData.put("cross_name", crossCountTemp.getCrossName());
+					tmpData.put("cross_car_total", carCrossHourCntList.size());
 					tmpData.put("day_time", hourTemp);
 					tmpData.put("cross_car_data", countTemp);
 					data.add(tmpData);
