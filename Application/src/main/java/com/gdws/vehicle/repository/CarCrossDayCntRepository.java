@@ -29,7 +29,7 @@ public interface CarCrossDayCntRepository extends JpaRepository<CarCrossDayCnt, 
 	 * @param plateNo
 	 * @return
 	 */
-	@Query(value = "SELECT * FROM car_cross_day_cnt where DATE_SUB(CURDATE(), INTERVAL ?1 DAY) <= date(cross_time) and plate_no=?2 ORDER BY cross_cnt desc;", nativeQuery = true)
-	List<CarCrossDayCnt> getOneWeekData(int day, String plateNo);
 
+	@Query(value = "SELECT * from car_cross_day_cnt where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(cross_time) AND plate_no = ?1 and cross_id=?2  ORDER BY week_num asc;", nativeQuery = true)
+	List<CarCrossDayCnt> analysisOnWeek(String plateNo, String crossId);
 }

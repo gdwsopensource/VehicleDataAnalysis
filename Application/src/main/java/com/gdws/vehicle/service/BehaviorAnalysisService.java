@@ -10,7 +10,6 @@ package com.gdws.vehicle.service;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
-import com.gdws.vehicle.entity.CarCrossHourCntRes;
 
 /**
  *

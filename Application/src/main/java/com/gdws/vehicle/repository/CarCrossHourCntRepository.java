@@ -14,7 +14,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.alibaba.fastjson.JSONObject;
 import com.gdws.vehicle.entity.CarCrossHourCnt;
-import com.gdws.vehicle.entity.CarCrossHourCntRes;
 
 /**
  *
@@ -28,9 +27,6 @@ public interface CarCrossHourCntRepository extends JpaRepository<CarCrossHourCnt
 	 * @param plateNo
 	 * @return
 	 */
-//	@Query(value = "select a.*,c.cross_name from( select  * from car_cross_hour_cnt a where  5>( select  count(*) from car_cross_hour_cnt  where hour_num=a.hour_num and  cross_id=a.cross_id and cross_cnt > a.cross_cnt  ) and a.plate_no=?1   and a.cross_time=?2 order by hour_num,cross_cnt) a left outer join cross_info c on a.cross_id=c.cross_id ;", nativeQuery = true)
-//	List<CarCrossHourCntRes> findByPlateNoOrderByCrossCntDesc(String plateNo,String crossTime);
-	
 	@Query(value="SELECT * from car_cross_hour_cnt where cross_time=?1 and plate_no=?2 and cross_id=?3 ORDER BY hour_num asc",nativeQuery=true)
 	List<CarCrossHourCnt> getOneDayAnalysis(String crossTime,String plateNo,String crossId);
 }
