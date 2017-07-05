@@ -1,9 +1,9 @@
 /*
- * File Name：BehaviorAnalysisOnWeekController.java
+ * File Name：BehaviorAnalysisOnMonthController.java
  *
  * Copyrighe：copyright@2017 GZSW Company, All Rights Reserved
  *
- * Create Time: 2017年7月5日 下午3:38:28
+ * Create Time: 2017年7月5日 下午4:35:11
  */
 package com.gdws.vehicle.controller.rest;
 
@@ -16,26 +16,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.gdws.vehicle.entity.CarCrossDayCnt;
-import com.gdws.vehicle.entity.CrossCount;
-import com.gdws.vehicle.repository.CrossCountRepository;
-import com.gdws.vehicle.service.BehaviorAnalysisOnWeekService;
-
+import com.gdws.vehicle.entity.ResWithLngAndLat;
+import com.gdws.vehicle.service.BehaviorAnalysisOnMonthService;
 
 /**
  *
  * @author vous (shinena_deng@163.com)
- * @version 1.0, 2017年7月5日 下午3:38:28
+ * @version 1.0, 2017年7月5日 下午4:35:11
  */
 @RestController
-public class BehaviorAnalysisOnWeekController {
+public class BehaviorAnalysisOnMonthController {
 	@Autowired
-	private BehaviorAnalysisOnWeekService service;
-	
-	@RequestMapping("analysisOnWeek")
+	private BehaviorAnalysisOnMonthService behaviorAnalysisOnMonthService;
+
+	@RequestMapping("analysisOnMonth")
 	@ResponseBody
-	public JSONPObject analysisOnWeek(String cb, String plateNo) {
-		JSONObject str = service.analysisOnWeek(plateNo);
+	public JSONPObject analysisOnMonth(String cb, String plateNo) {
+		JSONObject str = behaviorAnalysisOnMonthService.analysisOnMonth(plateNo);
 		return new JSONPObject(cb, str.toString());
 	}
 }
