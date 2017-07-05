@@ -51,7 +51,7 @@ public class BehaviorPredictionServiceImpl implements BehaviorpredictionService 
 			} else {
 				obj.put("code", 200);
 				obj.put("message", "success");
-				obj.put("data", "no data");
+				obj.put("data", "null");
 			}
 		} catch (Exception e) {
 			obj.put("code", 500);

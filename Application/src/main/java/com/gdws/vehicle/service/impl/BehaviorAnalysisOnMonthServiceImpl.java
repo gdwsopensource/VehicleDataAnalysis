@@ -63,7 +63,7 @@ public class BehaviorAnalysisOnMonthServiceImpl implements BehaviorAnalysisOnMon
 			} else {
 				obj.put("code", 200);
 				obj.put("message", "success");
-				obj.put("data", null);
+				obj.put("data", "null");
 			}
 		} catch (Exception e) {
 			obj.put("code", 500);

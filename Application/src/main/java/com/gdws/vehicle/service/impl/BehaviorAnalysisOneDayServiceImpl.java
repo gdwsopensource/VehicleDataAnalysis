@@ -78,7 +78,7 @@ public class BehaviorAnalysisOneDayServiceImpl implements BehaviorAnalysisOneDay
 				obj.put("code", 200);
 				obj.put("message", "success");
 				obj.put("total", 0);
-				obj.put("data", null);
+				obj.put("data", "null");
 			}
 		} catch (Exception e) {
 			obj.put("code", 500);
