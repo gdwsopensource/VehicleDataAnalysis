@@ -19,7 +19,7 @@ import com.gdws.vehicle.entity.CrossCount;
  * @author vous (shinena_deng@163.com)
  * @version 1.0, 2017年7月4日 下午4:19:53
  */
-public interface CrossCountRepository extends JpaRepository<CrossCount,Integer>{
-	@Query(value="select ch.id as id,count(ch.cross_cnt) as count,ch.cross_id as cross_id,ci.cross_name as cross_name from car_cross_hour_cnt ch join cross_info ci on ch.cross_id=ci.cross_id where cross_time=?1 and plate_no=?2 GROUP BY cross_id ORDER BY count(cross_cnt) desc LIMIT 6;",nativeQuery=true)
-	List<CrossCount> getSixCross(String crossTime,String plateNo);
+public interface CrossCountRepository extends JpaRepository<CrossCount, Integer> {
+	@Query(value = "select ch.id as id,count(ch.cross_cnt) as count,ch.cross_id as cross_id,ci.cross_name as cross_name from car_cross_hour_cnt ch join cross_info ci on ch.cross_id=ci.cross_id where cross_time=?1 and plate_no=?2 GROUP BY cross_id ORDER BY count(cross_cnt) desc LIMIT 6;", nativeQuery = true)
+	List<CrossCount> getSixCross(String crossTime, String plateNo);
 }
