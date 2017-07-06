@@ -9,8 +9,8 @@
 		<div class="aside" id="aside" th:include="@{include/aside}"></div>
 		<section class="content">
 			<div class="map" id="map"></div>
-			<div class="calendar" th:include="@{include/calendar}"></div>
-			<div class="data" id="data">
+			<div class="calendar" th:include="@{include/calendar}" id="calendar"></div>
+			<div class="data" id="data" style="display:none;">
 					<div class="title">高发车辆</div>
 					<div class="close"></div>
 					<div class="box">
@@ -19,12 +19,12 @@
 								<tr>
 									<td>卡口</td>
 									<td>车辆</td>
-									<td>时间段</td>
+									<td>时间</td>
 									<td>预警类型</td>
 								</tr>
 							</thead>
 							<tbody>
-								<tr data-carid="20">
+								<!-- <tr data-carid="20">
 									<td>天河</td>
 									<td>粤Axxxx</td>
 									<td>09:00-10:00</td>
@@ -107,7 +107,7 @@
 									<td>粤Axxxx</td>
 									<td>09:00-10:00</td>
 									<td>逾期未年检</td>
-								</tr>
+								</tr> -->
 							</tbody>
 						</table>
 					</div>			
@@ -115,6 +115,7 @@
 		</section>
 	</div>
 	<footer th:include="@{include/footer}" class="footer"></footer>
-	<script th:src="@{js/main.js}"></script>
+	<script th:src="@{js/common.js}" async="async" defer="defer"></script>
+	<script th:src="@{js/index.js}" async="async" defer="defer"></script>
 </body>
 </html>
